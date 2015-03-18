@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function bigslide_init() {
+  drupal_add_js("jQuery(document).ready(function () {
+    jQuery('.menu-link').bigSlide({menu: '#block-menu-block-1', easyClose: true});
+  });", "inline");
+}
+
