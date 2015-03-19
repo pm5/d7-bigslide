@@ -5,7 +5,17 @@
  */
 function bigslide_init() {
   drupal_add_js("jQuery(document).ready(function () {
-    jQuery('.menu-link').bigSlide({menu: '#block-menu-block-1', easyClose: true});
+    jQuery('.menu-link').bigSlide({
+      menu: '#block-menu-block-1',
+      push: '.bigslide-push',
+      easyClose: true
+    });
   });", "inline");
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function bigslide_preprocess_html(&$variables) {
+  $variables['classes_array'][] = 'bigslide-push';
+}
